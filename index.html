@@ -173,3 +173,12 @@
   </script>
 </body>
 </html>
+<button onclick="addToCart('سماعة رأس')">أضف إلى العربة</button>
+<script>
+  function addToCartAndGo(productName) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(productName);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.location.href = 'cart.html'; // ينتقل مباشرة إلى العربة
+  }
+</script>
