@@ -41,3 +41,53 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>المنتجات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="cart.html">عربة التسوق</a>
+    <a href="contact.html">اتصل بنا</a>
+  </nav>
+
+  <h1>المنتجات</h1>
+
+  <div class="products">
+    <div class="product">
+      <img src="images/smartphone.jpg" alt="هاتف ذكي" />
+      <h3>هاتف ذكي</h3>
+      <p>هاتف ذكي حديث مع كاميرا ممتازة.</p>
+      <button onclick="addToCartAndGo('هاتف ذكي')">أضف إلى العربة</button>
+    </div>
+
+    <div class="product">
+      <img src="images/laptop.jpg" alt="حاسوب محمول" />
+      <h3>حاسوب محمول</h3>
+      <p>حاسوب محمول قوي للأعمال والترفيه.</p>
+      <button onclick="addToCartAndGo('حاسوب محمول')">أضف إلى العربة</button>
+    </div>
+
+    <div class="product">
+      <img src="images/headphones.jpg" alt="سماعات رأس" />
+      <h3>سماعات رأس</h3>
+      <p>سماعات عالية الجودة لعشاق الموسيقى.</p>
+      <button onclick="addToCartAndGo('سماعات رأس')">أضف إلى العربة</button>
+    </div>
+  </div>
+
+  <script>
+    function addToCartAndGo(productName) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'cart.html';
+    }
+  </script>
+</body>
+</html>
