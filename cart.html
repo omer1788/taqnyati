@@ -1,46 +1,11 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>عربة التسوق</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>تقنيتي</h1>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="cart.html">عربة التسوق</a>
-      <a href="contact.html">تواصل معنا</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>عربة التسوق</h2>
-    <p>هذه عربة تسوق وهمية. سيتم تنفيذ الدفع عند تفعيل النظام الحقيقي.</p>
-    <ul>
-      <li>سماعات لاسلكية - 150 د.إ</li>
-      <li>شاحن سريع - 60 د.إ</li>
-    </ul>
-    <p><strong>الإجمالي: 210 د.إ</strong></p>
-    <button onclick="alert('عملية الشراء غير مفعلة حالياً')">إتمام الشراء</button>
-  </main>
-
-  <footer>
-    © 2025 تقنيتي. جميع الحقوق محفوظة.
-  </footer>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>المنتجات</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>عربة التسوق</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="products.html">المنتجات</a>
@@ -48,33 +13,32 @@
     <a href="contact.html">اتصل بنا</a>
   </nav>
 
-  <h1>المنتجات</h1>
-
-  <div class="products">
-    <div class="product">
-      <img src="images/headphones.jpg" alt="سماعة">
-      <h3>سماعة رأس</h3>
-      <p>سماعة عالية الجودة.</p>
-      <button onclick="addToCart('سماعة رأس')">أضف إلى العربة</button>
-    </div>
-
-    <div class="product">
-      <img src="images/charger.jpg" alt="شاحن">
-      <h3>شاحن سريع</h3>
-      <p>شاحن قوي لأجهزتك.</p>
-      <button onclick="addToCart('شاحن سريع')">أضف إلى العربة</button>
-    </div>
-    
-    <!-- أضف منتجات أخرى بنفس النمط -->
-  </div>
+  <h1>عربة التسوق</h1>
+  <ul id="cart-items"></ul>
+  <button onclick="clearCart()">إفراغ العربة</button>
 
   <script>
-    function addToCart(productName) {
+    function loadCart() {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(productName);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(productName + " تمت إضافته إلى العربة!");
+      let cartList = document.getElementById('cart-items');
+      if (cart.length === 0) {
+        cartList.innerHTML = '<li>العربة فارغة</li>';
+      } else {
+        cartList.innerHTML = '';
+        cart.forEach(function(item) {
+          let li = document.createElement('li');
+          li.textContent = item;
+          cartList.appendChild(li);
+        });
+      }
     }
+
+    function clearCart() {
+      localStorage.removeItem('cart');
+      loadCart();
+    }
+
+    loadCart();
   </script>
 </body>
 </html>
