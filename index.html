@@ -1,140 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>تقنيتي - الصفحة الرئيسية</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        section.products {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        section.products h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .product {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-        }
-        .product img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        .product h3 {
-            margin: 10px 0;
-        }
-        .product span {
-            color: green;
-            font-weight: bold;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 40px;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>تقنيتي</h1>
-    <nav>
-        <a href="#">الرئيسية</a>
-   <a href="contact.html">اتصل بنا</a>
-      <button onclick="location.href='cart.html'">اذهب إلى عربة التسوق</button>
-        
-</nav>
-</header>
-
-<section class="products">
-    <h2>منتجاتنا</h2>
-    <div class="product-grid">
-
-        <div class="product">
-            <img src="images/headphones.jpg" alt="سماعات لاسلكية" />
-            <h3>سماعات لاسلكية</h3>
-            <p>سماعات بجودة عالية وسعر مناسب</p>
-            <span>150 د.إ</span>
-        </div>
-
-        <div class="product">
-            <img src="images/charger.jpg" alt="شاحن سريع" />
-            <h3>شاحن سريع</h3>
-            <p>شاحن سريع يدعم الشحن الآمن</p>
-            <span>60 د.إ</span>
-        </div>
-
-        <div class="product">
-            <img src="images/camera.jpg" alt="كاميرا مراقبة ذكية" />
-            <h3>كاميرا مراقبة ذكية</h3>
-            <p>رؤية ليلية واتصال مباشر عبر الهاتف</p>
-            <span>250 د.إ</span>
-        </div>
-
-        <div class="product">
-            <img src="images/keyboard.jpg" alt="لوحة مفاتيح ميكانيكية" />
-            <h3>لوحة مفاتيح ميكانيكية</h3>
-            <p>إضاءة RGB وأداء مثالي للألعاب</p>
-            <span>180 د.إ</span>
-        </div>
-
-        <div class="product">
-            <img src="images/smartwatch.jpg" alt="ساعة ذكية رياضية" />
-            <h3>ساعة ذكية رياضية</h3>
-            <p>مراقبة اللياقة والإشعارات الذكية</p>
-            <span>320 د.إ</span>
-        </div>
-
-        <div class="product">
-            <img src="images/mouse.jpg" alt="ماوس لاسلكي احترافي" />
-            <h3>ماوس لاسلكي احترافي</h3>
-            <p>تحكم دقيق وتصميم مريح</p>
-            <span>90 د.إ</span>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-   
 <!DOCTYPE html>
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <title>المنتجات</title>
+  <title>موقعي الجديد</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -145,40 +13,9 @@
     <a href="contact.html">اتصل بنا</a>
   </nav>
 
-  <h1>المنتجات</h1>
-
-  <div class="products">
-    <div class="product">
-      <img src="images/headphones.jpg" alt="سماعة" />
-      <h3>سماعة رأس</h3>
-      <p>سماعة عالية الجودة.</p>
-      <button onclick="addToCartAndGo('سماعة رأس')">أضف إلى العربة</button>
-    </div>
-
-    <div class="product">
-      <img src="images/charger.jpg" alt="شاحن" />
-      <h3>شاحن سريع</h3>
-      <p>شاحن قوي لأجهزتك.</p>
-      <button onclick="addToCartAndGo('شاحن سريع')">أضف إلى العربة</button>
-    </div>
-  </div>
-
-  <script>
-    function addToCartAndGo(productName) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(productName);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      window.location.href = 'cart.html';
-    }
-  </script>
+  <header>
+    <h1>أهلاً بك في موقعي الجديد</h1>
+    <p>أفضل المنتجات بأفضل الأسعار!</p>
+  </header>
 </body>
 </html>
-<button onclick="addToCart('سماعة رأس')">أضف إلى العربة</button>
-<script>
-  function addToCartAndGo(productName) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(productName);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    window.location.href = 'cart.html'; // ينتقل مباشرة إلى العربة
-  }
-</script>
