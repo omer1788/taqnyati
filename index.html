@@ -42,28 +42,31 @@
       <img src="images/smartphone.jpg" alt="هاتف ذكي" />
       <h3>هاتف ذكي</h3>
       <p>هاتف ذكي حديث مع كاميرا ممتازة.</p>
-      <button onclick="addToCartAndGo('هاتف ذكي')">أضف إلى العربة</button>
+      <p><strong>السعر: 5,500 ₺</strong></p>
+      <button onclick="addToCartAndGo('هاتف ذكي', 5500)">أضف إلى العربة</button>
     </div>
 
     <div class="product">
       <img src="images/laptop.jpg" alt="حاسوب محمول" />
       <h3>حاسوب محمول</h3>
       <p>حاسوب محمول قوي للأعمال والترفيه.</p>
-      <button onclick="addToCartAndGo('حاسوب محمول')">أضف إلى العربة</button>
+      <p><strong>السعر: 8,200 ₺</strong></p>
+      <button onclick="addToCartAndGo('حاسوب محمول', 8200)">أضف إلى العربة</button>
     </div>
 
     <div class="product">
       <img src="images/headphones.jpg" alt="سماعات رأس" />
       <h3>سماعات رأس</h3>
       <p>سماعات عالية الجودة لعشاق الموسيقى.</p>
-      <button onclick="addToCartAndGo('سماعات رأس')">أضف إلى العربة</button>
+      <p><strong>السعر: 1,300 ₺</strong></p>
+      <button onclick="addToCartAndGo('سماعات رأس', 1300)">أضف إلى العربة</button>
     </div>
   </div>
 
   <script>
-    function addToCartAndGo(productName) {
+    function addToCartAndGo(productName, productPrice) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(productName);
+      cart.push({ name: productName, price: productPrice });
       localStorage.setItem('cart', JSON.stringify(cart));
       window.location.href = 'cart.html';
     }
