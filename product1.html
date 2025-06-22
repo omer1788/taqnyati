@@ -29,3 +29,48 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>عربة التسوق</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">المنتجات</a>
+    <a href="cart.html">عربة التسوق</a>
+    <a href="contact.html">اتصل بنا</a>
+  </nav>
+
+  <h1>محتويات عربة التسوق</h1>
+  <ul id="cart-items"></ul>
+  <button onclick="clearCart()">إفراغ العربة</button>
+
+  <script>
+    function loadCart() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let cartList = document.getElementById('cart-items');
+      if (cart.length === 0) {
+        cartList.innerHTML = '<li>العربة فارغة</li>';
+      } else {
+        cartList.innerHTML = '';
+        cart.forEach(function(item) {
+          let li = document.createElement('li');
+          li.textContent = item;
+          cartList.appendChild(li);
+        });
+      }
+    }
+
+    function clearCart() {
+      localStorage.removeItem('cart');
+      loadCart();
+    }
+
+    loadCart();
+  </script>
+</body>
+</html>
