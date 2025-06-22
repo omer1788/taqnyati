@@ -1,43 +1,11 @@
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>تفاصيل المنتج - سماعات</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>تقنيتي</h1>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="cart.html">عربة التسوق</a>
-      <a href="contact.html">تواصل معنا</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>سماعات لاسلكية</h2>
-    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="سماعات" class="product-image">
-    <p>سماعات لاسلكية عالية الجودة بتقنية بلوتوث. بطارية تدوم حتى 8 ساعات.</p>
-    <p class="price">السعر: 150 د.إ</p>
-    <button onclick="alert('تمت إضافة المنتج إلى السلة')">أضف إلى السلة</button>
-  </main>
-
-  <footer>
-    © 2025 تقنيتي. جميع الحقوق محفوظة.
-  </footer>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>عربة التسوق</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>المنتجات</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="products.html">المنتجات</a>
@@ -45,41 +13,31 @@
     <a href="contact.html">اتصل بنا</a>
   </nav>
 
-  <h1>محتويات عربة التسوق</h1>
-  <ul id="cart-items"></ul>
-  <button onclick="clearCart()">إفراغ العربة</button>
+  <h1>المنتجات</h1>
+
+  <div class="products">
+    <div class="product">
+      <img src="images/product1.jpg" alt="منتج 1" />
+      <h3>منتج 1</h3>
+      <p>وصف المنتج الأول.</p>
+      <button onclick="addToCartAndGo('منتج 1')">أضف إلى العربة</button>
+    </div>
+
+    <div class="product">
+      <img src="images/product2.jpg" alt="منتج 2" />
+      <h3>منتج 2</h3>
+      <p>وصف المنتج الثاني.</p>
+      <button onclick="addToCartAndGo('منتج 2')">أضف إلى العربة</button>
+    </div>
+  </div>
 
   <script>
-    function loadCart() {
+    function addToCartAndGo(productName) {
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let cartList = document.getElementById('cart-items');
-      if (cart.length === 0) {
-        cartList.innerHTML = '<li>العربة فارغة</li>';
-      } else {
-        cartList.innerHTML = '';
-        cart.forEach(function(item) {
-          let li = document.createElement('li');
-          li.textContent = item;
-          cartList.appendChild(li);
-        });
-      }
+      cart.push(productName);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'cart.html';
     }
-
-    function clearCart() {
-      localStorage.removeItem('cart');
-      loadCart();
-    }
-
-    loadCart();
   </script>
 </body>
 </html>
-<button onclick="addToCartAndGo('سماعة رأس')">أضف إلى العربة</button>
-<script>
-  function addToCartAndGo(productName) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(productName);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    window.location.href = 'cart.html'; // ينتقل مباشرة إلى العربة
-  }
-</script>
